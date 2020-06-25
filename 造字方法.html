@@ -1,0 +1,729 @@
+<!doctype html>
+<html style='font-size:20px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>造字方法</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+
+
+/* techo-typora style */
+:root {
+    --active-file-bg-color: #dadada;
+    --active-file-bg-color: rgba(32, 43, 51, 0.63);
+    --active-file-text-color: white;
+    --bg-color: #f9f5ed;
+    --text-color: #6e4832;
+    --side-bar-bg-color: #f5f5f5;
+    --control-text-color: #666;
+    --primary-color: #6e4832;
+}
+
+html {
+    color: #6e4832;
+    background: #f9f5ed;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+    font-size: 16px;
+    -webkit-font-smoothing: initial;
+}
+
+content {
+    background: #f9f5ed;
+}
+
+/* input mode  */
+#write {
+    max-width: 960px;
+    padding-top: 2em;
+    padding-left: 60px;
+    padding-right: 60px;
+    min-height: calc(100vh - 6em);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+.typora-node #write {
+    min-height: calc(100% - 6em);
+}
+
+/* meta - message - block */
+pre.md-meta-block {
+    color: rgba(146, 115, 91, 0.81);
+    padding: 1em;
+    border-radius: 2px;
+    font-size: 14px;
+    background: rgba(251, 246, 222, 0.5);
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+
+    #write {
+        padding-left: 30px;
+        background: #f9f5ed;
+        padding-right: 30px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    body, #footer-word-count-info {
+        background: #f5f5f5;
+    }
+
+    body.pin-outline,
+    .pin-outline #footer-word-count-info,
+    .pin-outline footer {
+        background: #f9f5ed;
+    }
+
+    #write {
+        max-width: 1000px;
+        padding: 40px 60px;
+        background: #f9f5ed;
+        margin: 3em auto 3em;
+    }
+
+    /* paper outline */
+    .pin-outline #write {
+        max-width: 1000px;
+        background: #f9f5ed;
+        margin: 0 0 0;
+        border: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    footer {
+        background-color: transparent;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    body.pin-outline,
+    .pin-outline #footer-word-count-info,
+    .pin-outline footer {
+        background: #f9f5ed;
+    }
+
+    .pin-outline #write {
+        max-width: 1000px;
+        padding: 40px 60px;
+        background: #f9f5ed;
+        margin: 3em auto 3em;
+    }
+
+    .pin-outline footer {
+        background-color: transparent;
+    }
+
+    #footer-word-count-info {
+        background: #f5f5f5;
+    }
+}
+
+/* clear margin and padding */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    display: block;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+body, button, input, select, textarea {
+    font: 400 1em/1.8 "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+}
+
+body {
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    /*font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;*/
+    -webkit-font-smoothing: initial;
+    font-weight: 100;
+    color: var(--text-color);
+    line-height: 1.35;
+    font-variant-numeric: lining-nums;
+    margin-bottom: 1em;
+}
+
+em {
+    font-family: "font/han.otf", Georgia-Italic, STSongti-SC-Light, serif;
+}
+
+strong em,
+em strong {
+    font-family: "font/han.otf", Georgia-BoldItalic, STSongti-SC-Regular, serif;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+/* img 添加边框 */
+img {
+    background: white;
+    border-radius: .2rem;
+    padding: 0.3rem;
+    box-shadow: 1px 2px 4px gray;
+    text-align: center;
+}
+
+blockquote {
+    position: relative;
+    color: rgba(146, 115, 91, 0.81);
+    font-weight: 400;
+    border-left: 2px solid #6e4832;
+    padding-left: 1rem;
+    margin: 1em 3em 1em 1em;
+}
+
+@media only screen and ( max-width: 640px ) {
+    blockquote {
+        margin: 1em 0;
+    }
+}
+
+acronym, abbr {
+    border-bottom: 1px dotted;
+    font-variant: normal;
+}
+
+abbr {
+    cursor: help;
+}
+
+address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: 400;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+
+:root sub, :root sup {
+    vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* a border bottom styles */
+a {
+    color: #4484c2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#write a {
+    font-weight: normal;
+}
+
+#write a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #4484c2;
+}
+
+ins, a {
+    text-decoration: none;
+}
+
+/* mark */
+mark {
+    background: #fffdd1;
+    border-bottom: 1px solid #ffedce;
+    padding: 2px;
+    margin: 0 5px;
+}
+
+pre, code, pre tt {
+    font-family: Courier, 'Courier New', monospace;
+}
+
+#write .md-fences {
+    border: 1px solid #ddd;
+    padding: 1em 0.5em;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 0.8em;
+    height: 10px;
+}
+
+strong, b {
+    font-weight: 700;
+    /*color: #000;*/
+}
+
+/* 段落之间的间隔 */
+#write p, #write .md-fences, #write ul, #write ol, #write dl, #write form, #write hr, #write figure,
+#write-p, #write-pre, #write-ul, #write-ol, #write-dl, #write-form, #write-hr, #write-table, blockquote {
+    margin-bottom: 1.2em
+}
+
+html {
+    font-family: "font/han.otf", PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6,
+#write-h1, #write-h2, #write-h3, #write-h4, #write-h5, #write-h6 {
+    margin-bottom: 0.6em;
+    line-height: 1.35;
+    color: #6e4832;
+    font-weight: bolder;
+}
+
+#write h1, #write-h1 {
+    font-size: 2.4em;
+    padding-bottom: 0.3em;
+    border-bottom: 3px double #eee;
+}
+
+#write h2, #write-h2 {
+    font-size: 1.8em;
+}
+
+#write h3, #write-h3 {
+    font-size: 1.6em;
+}
+
+#write h4, #write-h4 {
+    font-size: 1.4em;
+}
+
+#write h5, #write h6, #write-h5, #write-h6 {
+    font-size: 1.2em;
+}
+
+/* 在文章中的 ul 和 ol 的样式 */
+#write ul, #write-ul {
+    margin-left: 1.3em;
+    list-style: disc;
+}
+
+#write ol, #write-ol {
+    list-style: decimal;
+    margin-left: 1.9em;
+}
+
+#write li ul, #write li ol, #write-ul ul, #write-ul ol, #write-ol ul, #write-ol ol {
+    margin-bottom: 0.8em;
+    margin-left: 2em;
+}
+
+#write li ul, #write-ul ul, #write-ol ul {
+    list-style: circle;
+}
+
+[mdtype="table_row"] > th,
+[mdtype="table_row"] > td {
+    border: 1px solid #ddd;
+    padding: 0.5em 1em;
+    color: rgba(110, 72, 50, 0.74);
+}
+
+#write table th, #write-table th {
+    background: #fbfbfb;
+}
+
+#write table thead th, #write-table thead th {
+    background: rgba(251, 240, 211, 0.76);
+}
+
+#write table caption {
+    border-bottom: none;
+}
+
+#write em {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+li > p {
+    margin-bottom: 0 !important;
+}
+
+/* Responsive images */
+#write img {
+    max-width: 100%;
+}
+
+a.md-toc-inner {
+    border-bottom: 0 !important;
+}
+
+.md-toc-h1:first-of-type:last-of-type {
+    display: none;
+}
+
+.md-toc {
+    font-size: inherit;
+}
+
+.md-toc-h1 .md-toc-inner {
+    font-weight: normal;
+}
+
+.md-table-edit th {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.mac-seamless-mode #write {
+    min-height: calc(100vh - 6em - 20px);
+}
+
+.typora-quick-open-item.active {
+    color: var(--active-file-text-color);
+}
+
+*.in-text-selection, ::selection {
+    background: var(--active-file-bg-color);
+    text-shadow: none;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #2d2d2d;
+    border-color: #020202;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #4e4c4e;
+    border: #4e4c4e;
+}
+
+#preference-dialog .modal-content {
+    background: #6e757a;
+    --bg-color: #6e757a;
+    --text-color: #f1f1f1;
+    color: #f1f1f1;
+}
+
+/* 角标颜色 */
+sup.md-footnote {
+    color: #6e4832;
+}
+
+.task-list {
+    list-style: none !important;
+}
+
+/* checked box 效果 */
+.task-list-item input {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    -webkit-appearance: initial;
+    left: -18px;
+}
+
+.task-list-item input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.task-list-item input:before {
+    border: 2px solid #6e4832;
+    border-radius: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    content: ' ';
+    transition: background-color 200ms ease-in-out;
+    display: block;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    -webkit-appearance: initial;
+    background: #6e4832;
+    border-width: 2px;
+    display: inline-block;
+    transition: background-color 200ms ease-in-out;
+}
+
+.task-list-item input:checked:after,
+.task-list-item input[checked]:after {
+    opacity: 1;
+}
+
+.task-list-item input:after {
+    opacity: 1;
+    -webkit-transition: opacity 0.05s ease-in-out;
+    -moz-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 0.325rem;
+    left: 0.28125rem;
+    width: 0.6375rem;
+    height: 0.4rem;
+    border: 3px solid #f9f5ed;
+    border-top: 0;
+    border-right: 0;
+    content: ' ';
+    opacity: 0;
+}
+
+.task-list-done {
+    text-decoration: line-through;
+}
+
+.md-grid-board a:hover,
+.md-grid-board a.md-active {
+    border-color: #a1a1a1;
+    background: #f9edc5;
+}
+
+.md-grid-board tr[row='1'] a:hover,
+.md-grid-board tr[row='1'] a.md-active {
+    background: #5e3e2b;
+}
+
+
+body {
+  font-family: "Source Han Sans TW";
+}
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="造字方法" class="md-header-anchor"></a><span>造字方法</span></h1><p><span>歷史上很早就有人注意到漢字的構造分析，其中東漢許慎的 「六書」說，是他分析九千多個篆體漢字並創作文字學經典「説文解字」后歸納總結的漢字構造條例。 這些條例也成為後人考釋字義、析尋字源、教學漢字的重要依據。目前文字學學術界發展了更加精細的漢字分析方式，但 「六書」足以涵蓋大部分漢字構造。其實從周朝開始，小孩剛入學就會學習「六書」來識字，「六書」也因此別名「小學」。想想現在的中國小學生連「六書」的名字都沒聽説過，從小就靠反復抄寫，默寫來死記硬背漢字，不知為何漢字教學反而在兩千多年后走了下坡路。</span>
+<span>關於「六書」的名稱，最早見於「周禮」一書，其後名稱雖有歧異，排列次序也不一樣，但一般人講「六書」，名稱都是依許慎的說法，而次序則從班固，即象形、指事、會意、形聲、 轉注、假借。 </span></p><h1><a name="象形字" class="md-header-anchor"></a><span>象形字</span></h1><p><span>以曲折的筆畫，勾勒出客觀對象的外型輪廓。</span></p><h2><a name="構字法" class="md-header-anchor"></a><span>構字法</span></h2><h3><a name="一像實物的整體" class="md-header-anchor"></a><span>一、像實物的整體</span></h3><p><span>用這種方法造的象形字最多，像日、月、山、水、人、耳、龜、鳥等。</span></p><style>
+    td {
+        padding: 10px;
+        border-bottom: 1px solid grey;
+    }
+    .character-block {
+        font-size: 120px;
+        line-height: 120px;
+    }
+    tr > td:nth-child(2) {
+		width: 130px;
+    }
+    .image-block {
+        width: 250px;
+    }
+    @media only screen and (max-width: 400px) {
+        td {
+            padding: 10px 5px;
+        }
+        tr > th:nth-child(5), tr > td:nth-child(5) {
+            display: none;
+        }
+	    .character-block {
+			font-size: 50px;
+            line-height: 50px;
+        }
+        tr > td:nth-child(2) {
+            width: 60px;
+        }
+    }
+</style><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>甲骨文</span></th><th style='text-align:center;' ><span>含義</span></th><th style='text-align:center;' ><span>實物</span></th><th style='text-align:center;' ><span>表情符號</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>山</span></span></td><td style='text-align:center;' ><img alt="山" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E50F.svg"></td><td style='text-align:center;' ><span>像挺立的山峰</span></td><td style='text-align:center;' ><img alt="mountain" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1483728642387-6c3bdd6c93e5.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🗻</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>水</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E7BE.svg"></td><td style='text-align:center;' ><span>像流動的河流，四點代表兩岸的樹木</span></td><td style='text-align:center;' ><img alt="river" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1536048810607-3dc7f86981cb.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>💦</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>木</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_EA67.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>像一株樹，下有樹根，上有枝椏</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1518495973542-4542c06a5843" alt="sun light passing through green leafed tree" class="image-block" /></td><td style='text-align:center;' ><span class="character-block"><span>🌲</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>虫</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_F161.svg"></td><td style='text-align:center;' ><span>像蛇，本義是毒蛇。作偏旁時往往泛指昆蟲</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1563429206768-705f09eb541d.jpg" alt="snake" class="image-block" /></td><td style='text-align:center;' ><span class="character-block"><span>🐍</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>角</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_E2BB.svg"></td><td style='text-align:center;' ><span>像動物的角，中間有兩條紋飾</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1474246289157-c947d8234e57.jpg" alt="horn" class="image-block" /></td><td style='text-align:center;' ><span>缺</span></td></tr></tbody></table></figure><h3><a name="二像實物的局部" class="md-header-anchor"></a><span>二、像實物的局部</span></h3><p><span>畫出實物最具特徵的部分，以局部代替整體。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>甲骨文</span></th><th style='text-align:center;' ><span>含義</span></th><th style='text-align:center;' ><span>實物</span></th><th style='text-align:center;' ><span>表情符號</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>牛</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_E431.svg"></td><td style='text-align:center;' ><span>像兩角上曲的牛頭</span></td><td style='text-align:center;' ><img alt="mountain" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1540413869612-b7c2af142632.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🐄</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>羊</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_F7E8.svg"></td><td style='text-align:center;' ><span>像兩角下曲的羊頭</span></td><td style='text-align:center;' ><img alt="lamb" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1562811931-fbf7e9a79245.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🐑</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>竹</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E265.svg"></td><td style='text-align:center;' ><span>像下垂的竹葉</span></td><td style='text-align:center;' ><img alt="bamboo" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1532920161727-344adb090f7f.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🎍</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>衣</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_F693.svg"></td><td style='text-align:center;' ><span>像衣領和衣襟</span></td><td style='text-align:center;' ><img alt="cloth" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/1375090.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>👕</span></span></td></tr></tbody></table></figure><h3><a name="三帶有烘托物" class="md-header-anchor"></a><span>三、帶有烘托物</span></h3><p><span>把實物和它所依附的物體一起畫出來，以便識別。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>古字</span></th><th style='text-align:center;' ><span>含義</span></th><th style='text-align:center;' ><span>實物</span></th><th style='text-align:center;' ><span>表情符號</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>眉</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_F501.svg"></td><td style='text-align:center;' ><span>眉長在目上方，以目烘托眉</span></td><td style='text-align:center;' ><img alt="eyebrow" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1541329612541-dcb372bf5da0.jpg" class="image-block"></td><td style='text-align:center;' ><span>缺</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>果</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/32_E984.svg"></td><td style='text-align:center;' ><span>果結在「木」（樹）上，以木烘托果</span></td><td style='text-align:center;' ><img alt="fruit" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1541997353-3d9a767e3265.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🍊</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>瓜</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/32_F370.svg"></td><td style='text-align:center;' ><span>金文字形。瓜長在蔓上，以蔓烘托瓜</span></td><td style='text-align:center;' ><img alt="melon" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1580411663112-77c5c562f202.jpg" class="image-block"></td><td style='text-align:center;' ><span class="character-block"><span>🍉</span></span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>石</span></span></td><td style='text-align:center;' ><img alt="水" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E1F3.svg"></td><td style='text-align:center;' ><span>金文字形。山崖下邊有石頭，以山崖烘托石</span></td><td style='text-align:center;' ><img alt="cliff" src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/photo-1553406263-51ca876460c9.jpg" class="image-block"></td><td style='text-align:center;' ><span>缺</span></td></tr></tbody></table></figure><h2><a name="功用" class="md-header-anchor"></a><span>功用</span></h2><p><span>象形字是造字的基礎，合體字有相當一部分是用象形字構成的。 象形字一般來說：都是描摹具體的事物，如日、月、雲、 雨、鳥、獸、草、木，這些字反映了客觀的事物，代表了事物的類屬，成了部首。</span></p><h2><a name="侷限" class="md-header-anchor"></a><span>侷限</span></h2><p><span>象形字描摹實物的形象，所能創造的字很有限，社會事物紛繁，使它擔負不了替萬物造型的任務。以手來說，靜止的狀</span>
+<span>態好呈現，其他手的多種動作，就不是線條所能表現的；又如「木」來說，樹木當然有一個總體的基本形象，但多種不同的</span>
+<span>樹，比如榆，柳，槐，就沒有辦法用象形表現它們之間細微的差別；再比如説看不見摸不着的情感，就沒有實物可以模仿，無從象形。</span></p><h2><a name="出現頻率" class="md-header-anchor"></a><span>出現頻率</span></h2><p><span>根據清代王筠《文字蒙求》的統計，《說文解字》所收的 9353 字中，象形字共有 264 字，約占 3.89％，後世所創的象形字很少，只有凹凸和少數幾個字。 </span></p><h1><a name="指事字" class="md-header-anchor"></a><span>指事字</span></h1><p><span>「指事」就是用抽象符號或者提示符號來指明字的意義的造字方法。象形字只能根據具體事物造字， 對抽象的概念無法「象形」。給抽象事物造字，就要用「指事」 的方法。用一個符號來作標誌，這個標誌標在明顯醒目的地方， 叫人看了以後，想想這個標誌放在這裡表示什麼意思，這種造字方法就叫「指事」。</span></p><h2><a name="構字法-n1003" class="md-header-anchor"></a><span>構字法</span></h2><h3><a name="一純粹的抽象符號組合" class="md-header-anchor"></a><span>一、純粹的抽象符號組合</span></h3><p><span>用純粹的抽象符號來表示字的意義這種方法造的指事字較少。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>甲骨文</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>一</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_E000.svg" alt="一"/></td><td style='text-align:center;' ><span>一橫表示數字一</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>二</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_F241.svg" alt="二"/></td><td style='text-align:center;' ><span>兩橫表示數字二</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>三</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_E1D8.svg" alt="三"/></td><td style='text-align:center;' ><span>三橫表示數字三</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>上</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_E064.svg" alt="img" width="200px"></td><td style='text-align:center;' ><span>下面的弧綫表示基礎綫，線上一短橫表示在上面的意思。後來改短橫為豎</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>下</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_E093.svg" alt="img"/></td><td style='text-align:center;' ><span>上面的弧綫表示基礎綫，線下一短橫表示在下面的意思。後來改短橫為豎</span></td></tr></tbody></table></figure><h3><a name="二在象形字上加提示符號" class="md-header-anchor"></a><span>二、在象形字上加提示符號</span></h3><p><span>在象形字上加上提示符號來指示字的意義，最常用的提示符號是短橫和圓點。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>古字</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>本</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_672C.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。「木」（樹）的根部加一橫，指明樹根之所在。本義為樹根</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>末</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_672B.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。「木」（樹）的末梢加一橫，指明樹梢之所在。本義為樹梢</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>刃</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_E29B.svg" alt="img"/></td><td style='text-align:center;' ><span>甲骨文字形。「刀」口加一點，表示刀最鋒利的部份，即刀刃的所在。甲骨文的刀口可朝左也可朝右</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>寸</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_5BF8.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。在距離手腕一寸長的地方加一橫，指中醫切脈的寸口</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>亦</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E6A6.svg" alt="img"/></td><td style='text-align:center;' ><span>甲骨文字形。像人正面直立的樣子，兩邊的兩點指明「腋」的所在。本義為腋下</span></td></tr></tbody></table></figure><h2><a name="功用-n1059" class="md-header-anchor"></a><span>功用</span></h2><p><span>指事字可以用簡單的符號表示抽象的，複雜的，無形可象的意義，比象形字又進了一步。</span></p><h2><a name="侷限-n1061" class="md-header-anchor"></a><span>侷限</span></h2><p><span>但這種造字依然是有侷限的， 因為有些意義既無形可象，又無法用指示性符號來表示，所以指示字很少。指事字雖然不多，但它和象形字一樣，都是構成合體字的基礎，也是會意字、形聲字的構字部件。</span></p><h2><a name="出現頻率-n1063" class="md-header-anchor"></a><span>出現頻率</span></h2><p><span>根據清代朱駿聲《說文通訓定聲》的統計，《說文解字》所收的9353字當中，指事字只有 125 個，比象形字還少，只</span>
+<span>佔總數 1.33％。</span></p><h1><a name="會意字" class="md-header-anchor"></a><span>會意字</span></h1><p><span>把兩個或兩個以上的字合在一起，表示一個新的意思，就是會意字。</span></p><h2><a name="構字法-n1067" class="md-header-anchor"></a><span>構字法</span></h2><h3><a name="一異體會意字" class="md-header-anchor"></a><span>一、異體會意字</span></h3><p><span>由兩個或兩個以上，形體不同的字組合起來產生新義。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>古字</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span class="character-block"><span>灰</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_7070.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。從火，從手。表示火已熄滅，可以用手去撮取火灰，本義為火灰</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>炙</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_7099.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。從肉，從火。表示把肉放在火上烤， 也指燒烤的肉，本義為燒烤</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>及</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/41_EF4F.svg" alt="img"/></td><td style='text-align:center;' ><span>甲骨文字形。從人，從又。表示一隻手抓住一個人表示追及。本義為追及</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>析</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_EAC1.svg" alt="img"/></td><td style='text-align:center;' ><span>甲骨文字形。從木，從斤（斧）。以斧劈木，引申為剖開、分散。本義為劈木頭</span></td></tr><tr><td style='text-align:center;' ><span class="character-block"><span>看</span></span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_770B.svg" alt="img"/></td><td style='text-align:center;' ><span>小篆字形。從手，從目。即以手遮蔽日光以遠望的樣子。本義是瞭望</span></td></tr></tbody></table></figure><h3><a name="二同體會意字" class="md-header-anchor"></a><span>二、同體會意字</span></h3><p><span>由兩個或兩個以上，相同的形體組合而成的會意字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>古字</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>炎</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/43_E60C.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>甲骨文字形。從二火。火上有火，表示火苗升騰。本義是火焰</span></td></tr><tr><td style='text-align:center;' ><span>林</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_EB53.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>甲骨文字形。從二木。像兩棵樹並列形，以會樹木叢生之意。本義是樹林</span></td></tr><tr><td style='text-align:center;' ><span>从</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_F5DE.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>甲骨文字形。從二人，意為兩人一前一後相隨。本義是跟隨</span></td></tr><tr><td style='text-align:center;' ><span>北</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_F619.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>甲骨文字形。從二人，像兩人相背，是「背」的初文</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup></td></tr><tr><td style='text-align:center;' ><span>晶</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/42_EE8E.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>甲骨文字形。從三個圓圈，像三顆星星之形，古代三可代表多數，故可理解為眾多星星。星中各加一點，以表其光，並不影響其音、義。「晶」是「星」的初文</span></td></tr><tr><td style='text-align:center;' ><span>轟</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_8F5F.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>小篆字形。從三車，表示群車轟鳴的聲音。本義是很多車發出的聲音</span></td></tr><tr><td style='text-align:center;' ><span>茻</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_833B.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>小篆字形。從四屮，表示叢生的草。</span></td></tr></tbody></table></figure><h3><a name="三非象形的組合" class="md-header-anchor"></a><span>三、非象形的組合</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>楷書</span></th><th style='text-align:center;' ><span>古字</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>劣</span></td><td style='text-align:center;' ><img src="%E9%80%A0%E5%AD%97%E6%96%B9%E6%B3%95.assets/27_52A3.svg" referrerpolicy="no-referrer" alt="img"></td><td style='text-align:center;' ><span>小篆字形。從少從力，表示虛弱</span></td></tr><tr><td style='text-align:center;' ><span>尖</span></td><td style='text-align:center;' ><span>此字晚出，始見於楷書</span></td><td style='text-align:center;' ><span>楷書字形。從小從大，上小下大，表示尖形</span></td></tr><tr><td style='text-align:center;' ><span>卡</span></td><td style='text-align:center;' ><span>此字晚出，始見於楷書。</span></td><td style='text-align:center;' ><span>楷書字形。從上從下，而中間橫筆為共用，表示不上不下、卡住了的意思。</span></td></tr></tbody></table></figure><h2><a name="功用-n2154" class="md-header-anchor"></a><span>功用</span></h2><p><span>會意字突破了象形、指事兩種造字法的侷限，組合的形式靈活多樣，表達的意義更加明顯。會意字也開闢了合體造字的道路，為漢字大量孳乳提供了條件。</span></p><h2><a name="局限" class="md-header-anchor"></a><span>局限</span></h2><p><span>會意字不能標示讀音，記錄語言仍有不便，造字方 面，雖有大幅增加，仍有一定限度，都是它的缺點。</span></p><h2><a name="出現頻率-n2224" class="md-header-anchor"></a><span>出現頻率</span></h2><p><span>根據王筠的統計《說文》 中，會意字多達 1254 字，佔所有9353個字的13.4%。直到現在，會意字還在被人們用來創造新字。</span></p><h1><a name="形聲字" class="md-header-anchor"></a><span>形聲字</span></h1><p><span>形聲字是用與字義所表事物有關的字作形符造字，取比讀音與新字相同或相近的字來跟它合成新字。形聲字由音符與意符組合而成，意符表形，音符表聲。如江、河二字，從水取義，分別以工、可標聲。音符又叫做聲旁，意符又叫做形旁。</span></p><h2><a name="構字法-n2262" class="md-header-anchor"></a><span>構字法</span></h2><h3><a name="一單音聲旁不同形旁" class="md-header-anchor"></a><span>一、單音聲旁+不同形旁</span></h3><p><span>用一個單音聲旁加上不同的形旁，可以組成與聲旁讀音相同或相近的字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>聲旁（dīng）</span></th><th style='text-align:center;' ><span>形旁</span></th><th style='text-align:center;' ><span>形聲字</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>丁</span></td><td style='text-align:center;' ><span>口</span></td><td style='text-align:center;' ><span>叮（dīng）</span></td></tr><tr><td style='text-align:center;' ><span>丁</span></td><td style='text-align:center;' ><span>頁</span></td><td style='text-align:center;' ><span>頂（dǐng）</span></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><span>聲旁（gǔ）</span></th><th style='text-align:center;' ><span>形旁</span></th><th style='text-align:center;' ><span>形聲字</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>口（讀作kǒu，嘴巴）</span></td><td style='text-align:center;' ><span>咕（gū）</span></td></tr><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>氵（水）</span></td><td style='text-align:center;' ><span>沽（gū）</span></td></tr><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>女</span></td><td style='text-align:center;' ><span>姑（gū）</span></td></tr><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>鳥</span></td><td style='text-align:center;' ><span>鴣（gū）</span></td></tr><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>囗（讀作wéi，「圍」的古體字，像四周圍起來的樣子）</span></td><td style='text-align:center;' ><span>固（gù）</span></td></tr><tr><td style='text-align:center;' ><span>古</span></td><td style='text-align:center;' ><span>艹（艸）</span></td><td style='text-align:center;' ><span>苦（kǔ）</span></td></tr></tbody></table></figure><h3><a name="二多音聲旁不同形旁" class="md-header-anchor"></a><span>二、多音聲旁+不同形旁</span></h3><p><span>用一個多音的聲旁，加上不個的形旁，組成不同讀音的字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>聲旁</span></th><th style='text-align:center;' ><span>形旁</span></th><th style='text-align:center;' ><span>形聲字</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>分（fēn）</span></td><td style='text-align:center;' ><span>艹（艸）</span></td><td style='text-align:center;' ><span>芬（fēn）</span></td></tr><tr><td style='text-align:center;' ><span>分（fèn）</span></td><td style='text-align:center;' ><span>亻（人）</span></td><td style='text-align:center;' ><span>份（fèn）</span></td></tr><tr><td style='text-align:center;' ><span>分（fèn）</span></td><td style='text-align:center;' ><span>心</span></td><td style='text-align:center;' ><span>忿（fèn）</span></td></tr></tbody></table></figure><h3><a name="三一個形旁不同聲旁" class="md-header-anchor"></a><span>三、一個形旁+不同聲旁</span></h3><p><span>用一個形旁加上不同的聲旁，可以造出讀音不同的字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>形旁</span></th><th style='text-align:center;' ><span>聲旁</span></th><th style='text-align:center;' ><span>形聲字</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>木</span></td><td style='text-align:center;' ><span>兆（zhào）</span></td><td style='text-align:center;' ><span>桃（táo）</span></td></tr><tr><td style='text-align:center;' ><span>木</span></td><td style='text-align:center;' ><span>俞（yú）</span></td><td style='text-align:center;' ><span>榆（yú）</span></td></tr><tr><td style='text-align:center;' ><span>木</span></td><td style='text-align:center;' ><span>圭（guī）</span></td><td style='text-align:center;' ><span>桂（guì）</span></td></tr><tr><td style='text-align:center;' ><span>木</span></td><td style='text-align:center;' ><span>利（lì）</span></td><td style='text-align:center;' ><span>梨（lí）</span></td></tr><tr><td style='text-align:center;' ><span>木</span></td><td style='text-align:center;' ><span>丈（zhàng）</span></td><td style='text-align:center;' ><span>杖（zhàng）</span></td></tr></tbody></table></figure><h3><a name="四同樣的形旁和聲旁" class="md-header-anchor"></a><span>四、同樣的形旁和聲旁</span></h3><p><span>同樣的形旁和聲旁，可以透過部位轉換，造成新的形聲字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>形旁</span></th><th style='text-align:center;' ><span>聲旁</span></th><th style='text-align:center;' ><span>形聲字</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>口</span></td><td style='text-align:center;' ><span>今</span></td><td style='text-align:center;' ><span>含、吟</span></td></tr><tr><td style='text-align:center;' ><span>日</span></td><td style='text-align:center;' ><span>軍</span></td><td style='text-align:center;' ><span>暉、暈</span></td></tr></tbody></table></figure><h2><a name="功用-n2458" class="md-header-anchor"></a><span>功用</span></h2><p><span>形聲字的產生，使漢字的性質產生了重大的變化，由表意文字過渡到意音文字，在漢字發展史上具有深遠的意義。值得注意的是，形聲字的聲符從本質上來説不是用來表音的，少有聲符與所構的形聲字讀音相同，大部分只能近似。聲符的主要作用是在意符表示的意義外進一步區別個體事物，如在氵（水）表示的水域之外進一步區分江、河、湖、海等。正因為聲符對形聲字的讀音只有提示作用，漢字才可以支持不同方言。</span></p><h2><a name="出現頻率-n2495" class="md-header-anchor"></a><span>出現頻率</span></h2><p><span>三千多年來，形聲字不斷增加，已由甲骨文的 20%增加到現在的 90%以上，（康熙字典中形聲字占90%以上）。形聲字是漢字造字發展的最高階段，說文所收9353字中，形聲字有7697字，占82%以上，直到今天，仍然是常用的造字方法。</span></p><h1><a name="轉注字" class="md-header-anchor"></a><span>轉注字</span></h1><p><span>轉注與假借都是用字的方法，不是造字的方法。不過因為許多常用字與這兩種方法有關，所以我在此簡單解釋。</span></p><p><span>一對或一組同一個部首、讀音相近、可以互相解釋的同意字。例如：</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>轉注字</span></th><th style='text-align:center;' ><span>部首</span></th><th style='text-align:center;' ><span>讀音</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>老</span></td><td style='text-align:center;' ><span>老</span></td><td style='text-align:center;' ><span>lǎo</span></td><td style='text-align:center;' ><span>老人</span></td></tr><tr><td style='text-align:center;' ><span>考</span></td><td style='text-align:center;' ><span>老</span></td><td style='text-align:center;' ><span>kǎo</span></td><td style='text-align:center;' ><span>老人</span></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><span>轉注字</span></th><th style='text-align:center;' ><span>部首</span></th><th style='text-align:center;' ><span>讀音</span></th><th style='text-align:center;' ><span>含義</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>顛</span></td><td style='text-align:center;' ><span>頁</span></td><td style='text-align:center;' ><span>diān</span></td><td style='text-align:center;' ><span>頭的最上部</span></td></tr><tr><td style='text-align:center;' ><span>頂</span></td><td style='text-align:center;' ><span>頁</span></td><td style='text-align:center;' ><span>dǐng</span></td><td style='text-align:center;' ><span>頭的最上部</span></td></tr></tbody></table></figure><p><span>文字不是一人一時一地所造的，可是各種文字的功用同樣是紀錄語言的，因此，同一意義的語言，甲地造出的字，和乙地造出的字可能不同；起初用的字可能和後來用的字也不同了，這些在不同時間空間造出的「語根相同，語義相同，但字形不同的」文字在某時某地都已經普遍使用，既然很難取消使用，就用轉相注釋的方法來溝通這些文字。</span></p><h1><a name="假借字" class="md-header-anchor"></a><span>假借字</span></h1><p><span>語言中有某個詞，但沒有記錄這個詞的字，於是借用一個現成的同音字（或音近字）來寄託那個詞的意義，因為這個同音字是借用的，所以稱為假借字。</span></p><h2><a name="一無本字" class="md-header-anchor"></a><span>一、無本字</span></h2><p><span>語言中有「其」這種讀音的虛詞，但最初沒有專造一個字來代表它，而是借用文字中已有的與之讀音相同的，本義為「簸箕」的「其」來記錄。「其」表虛詞時，就是假借字。可見假借字表示假借義時，是一個純粹的表音符號。</span></p><h2><a name="二有本字" class="md-header-anchor"></a><span>二、有本字</span></h2><p><span>草木的「草」，本字是「艸」（草本植物的總稱），後借用同音的「草」來代替。</span></p><h2><a name="功用-n2583" class="md-header-anchor"></a><span>功用</span></h2><p><span>假借是漢字這個意音文字的表音特點，它彌補了象形文字無法構形造字的缺點，同時還能節省造字，減輕了人們學習</span>
+<span>的負擔，擴大了漢字的使用範圍。</span></p><h2><a name="局限-n2610" class="md-header-anchor"></a><span>局限</span></h2><p><span>假借的缺點也很明顯，就「本無其字」來講，造成了同形、同音、異義的矛盾；就本有其字來講，造成了異形、同音，同義的矛盾，所以假借雖然方便記錄語言，卻給語法帶來了許多的困難。</span></p><h1><a name="參考資料" class="md-header-anchor"></a><span>參考資料</span></h1><p><a href='https://www.naer.edu.tw/ezfiles/0/1000/attach/8/pta_353_189800_52069.pdf'><span>文字學淺說——賴慶雄</span></a></p><p><a href='zdic.net'><span>漢典</span></a></p><p><a href='http://www.chinese-linguipedia.org/search_source.html'><span>漢字源流——中華語文知識庫</span></a></p><p><a href='https://pedia.cloud.edu.tw/'><span>教育百科——中華民國教育局</span></a></p><p><a href='https://www.nani.com.tw/jteacher/pictographs/image/H6b_a05.html#:~:text=%E8%A8%B1%E6%85%8E%E8%AA%AA%EF%BC%9A%E3%80%8C%E8%BD%89%E6%B3%A8%E8%80%85%EF%BC%8C,%E3%80%8E%E8%80%81%E3%80%8F%E6%98%AF%E4%B9%9F%E3%80%8D%E3%80%82&amp;text=%E8%BD%89%E6%B3%A8%E5%AD%97%E6%9C%89%E4%B8%89%E5%80%8B%E6%A2%9D%E4%BB%B6,%E4%B8%80%E7%B5%84%EF%BC%8C%E4%B8%8D%E8%83%BD%E6%98%AF%E4%B8%80%E5%80%8B%E3%80%82'><span>轉注字的定義——南一書局</span></a></p><p>&nbsp;</p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <span>初文：文字學上指同一個字的初期寫法。相對於後起字而言。以獨體字居多。如「趾」本作「止」，象足趾形，後加意符「足」作「趾」。「止」即為「趾」的初文。</span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div></div></div>
+</body>
+</html>
