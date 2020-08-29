@@ -2,7 +2,7 @@
 <html style='font-size:20px !important'>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>每日一字</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>每日一字</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -155,373 +155,540 @@ mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
+
+
+/* techo-typora style */
 :root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
+    --active-file-bg-color: #dadada;
+    --active-file-bg-color: rgba(32, 43, 51, 0.63);
+    --active-file-text-color: white;
+    --bg-color: #f9f5ed;
+    --text-color: #6e4832;
+    --side-bar-bg-color: #f5f5f5;
+    --control-text-color: #666;
+    --primary-color: #6e4832;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+html {
+    color: #6e4832;
+    background: #f9f5ed;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+    font-size: 16px;
+    -webkit-font-smoothing: initial;
+}
 
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
+content {
+    background: #f9f5ed;
+}
+
+/* input mode  */
+#write {
+    max-width: 960px;
+    padding-top: 2em;
+    padding-left: 60px;
+    padding-right: 60px;
+    min-height: calc(100vh - 6em);
+    -webkit-font-smoothing: antialiased;
     font-size: 16px;
 }
 
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
+.typora-node #write {
+    min-height: calc(100% - 6em);
 }
 
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+/* meta - message - block */
+pre.md-meta-block {
+    color: rgba(146, 115, 91, 0.81);
+    padding: 1em;
+    border-radius: 2px;
+    font-size: 14px;
+    background: rgba(251, 246, 222, 0.5);
 }
 
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+
+    #write {
+        padding-left: 30px;
+        background: #f9f5ed;
+        padding-right: 30px;
+        font-size: 14px;
+    }
 }
 
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
+@media screen and (min-width: 1100px) {
+    body, #footer-word-count-info {
+        background: #f5f5f5;
+    }
+
+    body.pin-outline,
+    .pin-outline #footer-word-count-info,
+    .pin-outline footer {
+        background: #f9f5ed;
+    }
+
+    #write {
+        max-width: 1000px;
+        padding: 40px 60px;
+        background: #f9f5ed;
+        margin: 3em auto 3em;
+    }
+
+    /* paper outline */
+    .pin-outline #write {
+        max-width: 1000px;
+        background: #f9f5ed;
+        margin: 0 0 0;
+        border: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    footer {
+        background-color: transparent;
+    }
 }
 
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
+@media screen and (min-width: 1300px) {
+    body.pin-outline,
+    .pin-outline #footer-word-count-info,
+    .pin-outline footer {
+        background: #f9f5ed;
+    }
+
+    .pin-outline #write {
+        max-width: 1000px;
+        padding: 40px 60px;
+        background: #f9f5ed;
+        margin: 3em auto 3em;
+    }
+
+    .pin-outline footer {
+        background-color: transparent;
+    }
+
+    #footer-word-count-info {
+        background: #f5f5f5;
+    }
 }
 
-a {
-    color: #4183C4;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    padding-bottom: .3em;
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-   padding-bottom: .3em;
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
-}
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
+/* clear margin and padding */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
     padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
 }
 
-li p.first {
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    display: block;
+}
+
+audio, canvas, video {
     display: inline-block;
 }
-ul,
-ol {
-    padding-left: 30px;
+
+body, button, input, select, textarea {
+    font: 400 1em/1.8 "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
 }
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
+
+body {
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
 }
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    /*font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;*/
+    -webkit-font-smoothing: initial;
+    font-weight: 100;
+    color: var(--text-color);
+    line-height: 1.35;
+    font-variant-numeric: lining-nums;
+    margin-bottom: 1em;
 }
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
+
+em {
+    font-family: "font/han.otf", Georgia-Italic, STSongti-SC-Light, serif;
 }
-blockquote blockquote {
-    padding-right: 0;
+
+strong em,
+em strong {
+    font-family: "font/han.otf", Georgia-BoldItalic, STSongti-SC-Regular, serif;
 }
-table {
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
     padding: 0;
-    word-break: initial;
-}
-table tr {
-    border-top: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table tr th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr th:first-child,
-table tr td:first-child {
-    margin-top: 0;
-}
-table tr th:last-child,
-table tr td:last-child {
-    margin-bottom: 0;
-}
-
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
-}
-
-code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
-}
-
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-}
-
-
-.md-task-list-item > input {
-  margin-left: -1.3em;
-}
-
-@media print {
-    html {
-        font-size: 13px;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
-}
-
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
     border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
 }
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.md-mathjax-midline {
-    background: #fafafa;
+fieldset, img {
+    border: 0;
 }
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
+/* img 添加边框 */
+img {
+    background: white;
+    border-radius: .2rem;
+    padding: 0.3rem;
+    box-shadow: 1px 2px 4px gray;
+    text-align: center;
 }
 
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
+blockquote {
+    position: relative;
+    color: rgba(146, 115, 91, 0.81);
+    font-weight: 400;
+    border-left: 2px solid #6e4832;
+    padding-left: 1rem;
+    margin: 1em 3em 1em 1em;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+@media only screen and ( max-width: 640px ) {
+    blockquote {
+        margin: 1em 0;
+    }
 }
 
-.sidebar-tabs {
+acronym, abbr {
+    border-bottom: 1px dotted;
+    font-variant: normal;
+}
+
+abbr {
+    cursor: help;
+}
+
+address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: 400;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+
+:root sub, :root sup {
+    vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* a border bottom styles */
+a {
+    color: #4484c2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#write a {
+    font-weight: normal;
+}
+
+#write a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #4484c2;
+}
+
+ins, a {
+    text-decoration: none;
+}
+
+/* mark */
+mark {
+    background: #fffdd1;
+    border-bottom: 1px solid #ffedce;
+    padding: 2px;
+    margin: 0 5px;
+}
+
+pre, code, pre tt {
+    font-family: Courier, 'Courier New', monospace;
+}
+
+#write .md-fences {
+    border: 1px solid #ddd;
+    padding: 1em 0.5em;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 0.8em;
+    height: 10px;
+}
+
+strong, b {
+    font-weight: 700;
+    /*color: #000;*/
+}
+
+/* 段落之间的间隔 */
+#write p, #write .md-fences, #write ul, #write ol, #write dl, #write form, #write hr, #write figure,
+#write-p, #write-pre, #write-ul, #write-ol, #write-dl, #write-form, #write-hr, #write-table, blockquote {
+    margin-bottom: 1.2em
+}
+
+html {
+    font-family: "font/han.otf", PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6,
+#write-h1, #write-h2, #write-h3, #write-h4, #write-h5, #write-h6 {
+    margin-bottom: 0.6em;
+    line-height: 1.35;
+    color: #6e4832;
+    font-weight: bolder;
+}
+
+#write h1, #write-h1 {
+    font-size: 2.4em;
+    padding-bottom: 0.3em;
+    border-bottom: 3px double #eee;
+}
+
+#write h2, #write-h2 {
+    font-size: 1.8em;
+}
+
+#write h3, #write-h3 {
+    font-size: 1.6em;
+}
+
+#write h4, #write-h4 {
+    font-size: 1.4em;
+}
+
+#write h5, #write h6, #write-h5, #write-h6 {
+    font-size: 1.2em;
+}
+
+/* 在文章中的 ul 和 ol 的样式 */
+#write ul, #write-ul {
+    margin-left: 1.3em;
+    list-style: disc;
+}
+
+#write ol, #write-ol {
+    list-style: decimal;
+    margin-left: 1.9em;
+}
+
+#write li ul, #write li ol, #write-ul ul, #write-ul ol, #write-ol ul, #write-ol ol {
+    margin-bottom: 0.8em;
+    margin-left: 2em;
+}
+
+#write li ul, #write-ul ul, #write-ol ul {
+    list-style: circle;
+}
+
+[mdtype="table_row"] > th,
+[mdtype="table_row"] > td {
+    border: 1px solid #ddd;
+    padding: 0.5em 1em;
+    color: rgba(110, 72, 50, 0.74);
+}
+
+#write table th, #write-table th {
+    background: #fbfbfb;
+}
+
+#write table thead th, #write-table thead th {
+    background: rgba(251, 240, 211, 0.76);
+}
+
+#write table caption {
     border-bottom: none;
 }
 
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
+#write em {
+    font-weight: inherit;
+    font-style: inherit;
 }
 
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
+li > p {
+    margin-bottom: 0 !important;
 }
 
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
+/* Responsive images */
+#write img {
+    max-width: 100%;
 }
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+a.md-toc-inner {
+    border-bottom: 0 !important;
 }
 
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
+.md-toc-h1:first-of-type:last-of-type {
+    display: none;
 }
 
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
+.md-toc {
+    font-size: inherit;
 }
 
-.md-lang {
-    color: #b4654d;
+.md-toc-h1 .md-toc-inner {
+    font-weight: normal;
 }
 
-.html-for-mac .context-menu {
-    --item-hover-bg-color: #E6F0FE;
+.md-table-edit th {
+    padding: 0 !important;
+    border: 0 !important;
 }
 
-#md-notification .btn {
-    border: 0;
+.mac-seamless-mode #write {
+    min-height: calc(100vh - 6em - 20px);
 }
 
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
+.typora-quick-open-item.active {
+    color: var(--active-file-text-color);
 }
 
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
+*.in-text-selection, ::selection {
+    background: var(--active-file-bg-color);
+    text-shadow: none;
     color: white;
-    background: #999;
 }
+
+.btn-primary {
+    background-color: #2d2d2d;
+    border-color: #020202;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #4e4c4e;
+    border: #4e4c4e;
+}
+
+#preference-dialog .modal-content {
+    background: #6e757a;
+    --bg-color: #6e757a;
+    --text-color: #f1f1f1;
+    color: #f1f1f1;
+}
+
+/* 角标颜色 */
+sup.md-footnote {
+    color: #6e4832;
+}
+
+.task-list {
+    list-style: none !important;
+}
+
+/* checked box 效果 */
+.task-list-item input {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    -webkit-appearance: initial;
+    left: -18px;
+}
+
+.task-list-item input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.task-list-item input:before {
+    border: 2px solid #6e4832;
+    border-radius: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    content: ' ';
+    transition: background-color 200ms ease-in-out;
+    display: block;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+    -webkit-appearance: initial;
+    background: #6e4832;
+    border-width: 2px;
+    display: inline-block;
+    transition: background-color 200ms ease-in-out;
+}
+
+.task-list-item input:checked:after,
+.task-list-item input[checked]:after {
+    opacity: 1;
+}
+
+.task-list-item input:after {
+    opacity: 1;
+    -webkit-transition: opacity 0.05s ease-in-out;
+    -moz-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 0.325rem;
+    left: 0.28125rem;
+    width: 0.6375rem;
+    height: 0.4rem;
+    border: 3px solid #f9f5ed;
+    border-top: 0;
+    border-right: 0;
+    content: ' ';
+    opacity: 0;
+}
+
+.task-list-done {
+    text-decoration: line-through;
+}
+
+.md-grid-board a:hover,
+.md-grid-board a.md-active {
+    border-color: #a1a1a1;
+    background: #f9edc5;
+}
+
+.md-grid-board tr[row='1'] a:hover,
+.md-grid-board tr[row='1'] a.md-active {
+    background: #5e3e2b;
+}
+
+
 body {
   font-family: "Source Han Sans TW";
 }
-
+.md-toc-item {
+    display: inline;
+    margin: 2px;
+}
 </style>
 </head>
 <body class='typora-export os-windows' >
