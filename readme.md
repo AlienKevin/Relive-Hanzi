@@ -32,7 +32,7 @@ Strive to show the beauty and history of Hanzi through cartoons and articles. Th
    To load the font for the website, Paste the following immediately after `<style type='text/css'>`
 
    ```css
-   @font-face {font-family: 'Source Han Sans TW';src: url('SourceHanSansTW-Regular.woff') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
+   @font-face {font-family: 'Source Han Sans TW';src: url('SourceHanSansTW-Regular.woff2') format('woff2'), url('SourceHanSansTW-Regular.woff') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
    ```
 
 8. You are now ready to publish the HTML page!
