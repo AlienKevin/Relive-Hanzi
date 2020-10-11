@@ -2,7 +2,7 @@
 <html style='font-size:20px !important'>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>每日一字</title><style type='text/css'>@font-face {font-family: 'Source Han Sans TW';src: url('SourceHanSansTW-Regular.woff') format('woff');font-weight: normal;font-style: normal;font-display: swap;}html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>每日一字</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png"><link rel="manifest" href="./site.webmanifest"><link rel="mask-icon" href="./safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"><meta name="theme-color" content="#ffffff"><style type='text/css'>@font-face {font-family: "Source Han Sans TW";src: url("SourceHanSansTW-Regular.woff") format("woff");font-weight: normal;font-style: normal;font-display: swap;}html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -160,6 +160,8 @@ mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 }
 
 
+
+
 /* techo-typora style */
 :root {
     --active-file-bg-color: #dadada;
@@ -294,15 +296,15 @@ audio, canvas, video {
 }
 
 body, button, input, select, textarea {
-    font: 400 1em/1.8 "Source Han Sans TW", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    font: 400 1em/1.8 "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
 }
 
 body {
-    font-family: "Source Han Sans TW", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Source Han Sans TW", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
     /*font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;*/
     -webkit-font-smoothing: initial;
     font-weight: 100;
@@ -313,12 +315,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 em {
-    font-family: "Source Han Sans TW", Georgia-Italic, STSongti-SC-Light, serif;
+    font-family: "font/han.otf", Georgia-Italic, STSongti-SC-Light, serif;
 }
 
 strong em,
 em strong {
-    font-family: "Source Han Sans TW", Georgia-BoldItalic, STSongti-SC-Regular, serif;
+    font-family: "font/han.otf", Georgia-BoldItalic, STSongti-SC-Regular, serif;
 }
 
 button::-moz-focus-inner,
@@ -464,7 +466,7 @@ strong, b {
 }
 
 html {
-    font-family: "Source Han Sans TW", PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+    font-family: "font/han.otf", PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6,
@@ -684,7 +686,8 @@ sup.md-footnote {
     background: #5e3e2b;
 }
 
-/* Custom styles */
+
+
 #write {
     font-size: 18px;
 }
@@ -693,6 +696,10 @@ sup.md-footnote {
     #write {
         font-size: 16px;
     }
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Han Sans TW", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
 }
 
 .md-toc-h2 {
@@ -710,8 +717,6 @@ sup.md-footnote {
 img {
     max-width: min(100%,400px) !important;
 }
-
-
 </style>
 </head>
 <body class='typora-export os-windows'>
