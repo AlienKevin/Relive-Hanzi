@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+#write {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 800px) {
+    #write {
+        font-size: 16px;
+    }
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.md-toc-h2 {
+    display: inline;
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin: 2px;
+}
+
+.md-toc-h1 + .md-toc-h2 {
+    margin-left: 2em;
+}
+
+img {
+    max-width: min(100%,400px) !important;
+}
