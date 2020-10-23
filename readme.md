@@ -1,6 +1,6 @@
 # 重拾漢字 Relive Hanzi
 
-Strive to show the beauty and history of Hanzi through cartoons and articles. There are also plenty of learning resources (學習資料) for more in-depth inquiries.
+Strive to show the beauty and history of Hanzi through cartoons and articles.
 
 ## Build
 
@@ -44,4 +44,6 @@ Feel free to create push requests or create issues if you want to add contents, 
 
 ## License
 
-All works done by contributors to this repository, including the cartoon drawings and articles, are released in the public domain. You are free to share, use, and modify the works referenced above in non-commercial and commercial contexts. The materials presented in the learning resources (學習資料) are meant for non-commercial academic referencing only. The authors of these materials retain their copyrights.
+All works done by contributors to this repository, including the cartoon drawings and articles, are released in 
+the public domain. You are free to share, use, and modify the works referenced above in non-commercial and 
+commercial contexts.
